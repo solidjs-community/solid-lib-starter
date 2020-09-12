@@ -1,0 +1,52 @@
+{
+  "name": "@amoutonbrady/{{ name_of_lib }}",
+  "version": "0.0.0",
+  "description": "{{ desc_of_lib }}",
+  "main": "dist/{{ name_of_lib }}.cjs.js",
+  "module": "dist/{{ name_of_lib }}.esm.js",
+  "jsnext:main": "dist/{{ name_of_lib }}.esm.js",
+  "types": "types/{{ name_of_lib }}.d.ts",
+  "private": false,
+  "sideEffect": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "build": "rimraf dist types && rollup -c && tsc",
+    "prepublishOnly": "pnpm build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amoutonbrady/{{ name_of_lib }}.git"
+  },
+  "keywords": [],
+  "author": "Alexandre Mouton-Brady <amoutonbrady@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amoutonbrady/{{ name_of_lib }}/issues"
+  },
+  "homepage": "https://github.com/amoutonbrady/{{ name_of_lib }}#readme",
+  "peerDependencies": {
+    "solid-js": "^0.19.3"
+  },
+  "dependencies": {
+    "solid-js": "^0.19.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.11.2",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@types/node": "^14.10.1",
+    "babel-preset-solid": "^0.19.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.26.11",
+    "typescript": "^4.0.2"
+  }
+}
