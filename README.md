@@ -7,7 +7,7 @@
 Install it:
 
 ```bash
-pnpm add @amoutonbrady/{{ name_of_lib }}
+pnpm add {{ me }}/{{ name_of_lib }}
 ```
 
 Use it:
