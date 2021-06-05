@@ -1,52 +1,38 @@
 {
-  "name": "@amoutonbrady/{{ name_of_lib }}",
   "version": "0.0.0",
+  "name": "{{ name_of_lib }}",
   "description": "{{ desc_of_lib }}",
-  "main": "dist/{{ name_of_lib }}.cjs.js",
-  "module": "dist/{{ name_of_lib }}.esm.js",
-  "jsnext:main": "dist/{{ name_of_lib }}.esm.js",
-  "types": "types/{{ name_of_lib }}.d.ts",
-  "sideEffect": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "type": "module",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
+  "main": "dist/esm/{{ name_of_lib }}.js",
+  "module": "dist/esm/{{ name_of_lib }}.js",
+  "types": "dist/types/{{ name_of_lib }}.d.ts",
+  "exports": {
+    ".": {
+      "solid": "./dist/source/{{ name_of_lib }}.jsx",
+      "default": "./dist/esm/{{ name_of_lib }}.js"
+    }
+  },
   "scripts": {
-    "build": "rimraf dist types && rollup -c && tsc",
+    "build": "rollup -c",
     "prepublishOnly": "pnpm build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amoutonbrady/{{ name_of_lib }}.git"
+    "url": "git+https://github.com/{{ me }}/{{ name_of_lib }}.git"
   },
   "keywords": [],
-  "author": "Alexandre Mouton-Brady <amoutonbrady@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amoutonbrady/{{ name_of_lib }}/issues"
-  },
-  "homepage": "https://github.com/amoutonbrady/{{ name_of_lib }}#readme",
-  "peerDependencies": {
-    "solid-js": "^0.20.0"
-  },
+  "author": "{{ me }}",
+  "license": "MIT",
+  "homepage": "https://github.com/{{ me }}/{{ name_of_lib }}#readme",
   "dependencies": {
     "solid-js": "^0.26.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@babel/runtime": "^7.11.2",
-    "@babel/types": "^7.11.5",
-    "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@types/node": "^15.12.1",
-    "babel-preset-solid": "^0.26.5",
-    "rimraf": "^3.0.2",
     "rollup": "^2.28.2",
+    "rollup-preset-solid": "^0.3.0",
     "typescript": "^4.0.3"
   }
 }
