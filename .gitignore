@@ -1,10 +1,6 @@
 node_modules
-types
 dist
+gitignore
 
-.yarn/*
-!.yarn/cache
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
+# VSC Settings
+.vscode/settings.json
