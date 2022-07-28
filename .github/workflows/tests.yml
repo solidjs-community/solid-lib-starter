@@ -30,8 +30,8 @@ jobs:
 
       - name: Run Build and Tests
         run: pnpm run build
-        run: pnpm run test
-        run: pnpm run typecheck
+          pnpm run test
+          pnpm run typecheck
 
         env:
           CI: true
