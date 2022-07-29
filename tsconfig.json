@@ -16,6 +16,6 @@
     "types": [],
     "baseUrl": "."
   },
-  "include": ["src"],
+  "include": ["src", "dev"],
   "exclude": ["node_modules", "dist"]
 }
