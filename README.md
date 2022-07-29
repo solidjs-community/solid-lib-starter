@@ -17,20 +17,16 @@
 >
 > `{{me}}` should be a **kebab-case** string from your profile URL.
 
-# {{name_of_lib}}
-
-{{desc_of_lib}}
-
 ## Quick start
 
 Install it:
 
 ```bash
-npm i {{me}}/{{name_of_lib}}
+npm i {{name_of_lib}}
 # or
-yarn add {{me}}/{{name_of_lib}}
+yarn add {{name_of_lib}}
 # or
-pnpm add {{me}}/{{name_of_lib}}
+pnpm add {{name_of_lib}}
 ```
 
 Use it:
