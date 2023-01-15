@@ -1,7 +1,7 @@
-import type { Component } from "solid-js";
-import logo from "./logo.svg";
-import styles from "./App.module.css";
-import { Hello } from "../src";
+import type { Component } from 'solid-js'
+import logo from './logo.svg'
+import styles from './App.module.css'
+import { Hello } from '../src'
 
 const App: Component = () => {
   return (
@@ -24,7 +24,7 @@ const App: Component = () => {
         </a>
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
