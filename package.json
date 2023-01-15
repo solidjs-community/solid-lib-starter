@@ -48,7 +48,7 @@
     "test": "echo \"test not setup\"",
     "build": "tsup",
     "prepublishOnly": "pnpm build",
-    "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
+    "format": "prettier --ignore-path .gitignore -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
     "update-deps": "pnpm up -Li",
     "typecheck": "tsc --noEmit"
   },
