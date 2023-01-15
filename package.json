@@ -13,45 +13,54 @@
   "bugs": {
     "url": "https://github.com/{{me}}/{{name_of_lib}}/issues"
   },
-  "private": false,
-  "sideEffects": false,
-  "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "private": false,
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": {},
   "exports": {
-    ".": {
-      "solid": "./dist/source/index.jsx",
-      "import": "./dist/esm/index.js",
-      "browser": {
-        "import": "./dist/esm/index.js",
-        "require": "./dist/cjs/index.js"
+    "solid": {
+      "development": "./dist/index.dev.solid.jsx",
+      "import": "./dist/index.solid.jsx"
+    },
+    "browser": {
+      "development": {
+        "import": "./dist/index.dev.js",
+        "require": "./dist/index.dev.cjs"
       },
-      "require": "./dist/cjs/index.js",
-      "node": "./dist/cjs/index.js"
-    }
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "development": {
+      "import": "./dist/index.dev.js",
+      "require": "./dist/index.dev.cjs"
+    },
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "scripts": {
     "dev": "vite serve dev",
     "test": "echo \"test not setup\"",
-    "build": "rollup -c",
+    "build": "tsup",
     "prepublishOnly": "pnpm build",
     "format": "prettier -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
-    "update-deps": "taze -w && pnpm i",
+    "update-deps": "pnpm up -Li",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "solid-js": ">=1.0.0"
+    "solid-js": ">=1.6.0"
   },
   "devDependencies": {
+    "esbuild": "^0.17.0",
+    "esbuild-plugin-solid": "^0.4.2",
     "prettier": "2.8.3",
-    "rollup": "^3.10.0",
-    "rollup-preset-solid": "^2.0.1",
     "solid-js": "^1.6.9",
-    "taze": "^0.8.5",
+    "tsup": "^6.5.0",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vite-plugin-solid": "^2.5.0"
@@ -59,5 +68,5 @@
   "keywords": [
     "solid"
   ],
-  "packageManager": "pnpm@7.5.0"
+  "packageManager": "pnpm@7.20.0"
 }
