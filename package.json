@@ -25,22 +25,34 @@
   "browser": {},
   "exports": {
     "solid": {
-      "development": "./dist/index.dev.solid.jsx",
-      "import": "./dist/index.solid.jsx"
+      "development": "./dist/index.dev.jsx",
+      "import": "./dist/index.jsx"
     },
     "browser": {
       "development": {
-        "import": "./dist/index.dev.js",
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.dev.js"
+        },
         "require": "./dist/index.dev.cjs"
       },
-      "import": "./dist/index.js",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
       "require": "./dist/index.cjs"
     },
     "development": {
-      "import": "./dist/index.dev.js",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.dev.js"
+      },
       "require": "./dist/index.dev.cjs"
     },
-    "import": "./dist/index.js",
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
     "require": "./dist/index.cjs"
   },
   "scripts": {
@@ -61,6 +73,7 @@
     "prettier": "2.8.3",
     "solid-js": "^1.6.9",
     "tsup": "^6.5.0",
+    "tsup-preset-solid": "^0.0.5",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vite-plugin-solid": "^2.5.0"

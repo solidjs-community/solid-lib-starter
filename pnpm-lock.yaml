@@ -6,6 +6,7 @@ specifiers:
   prettier: 2.8.3
   solid-js: ^1.6.9
   tsup: ^6.5.0
+  tsup-preset-solid: ^0.0.5
   typescript: ^4.9.4
   vite: ^4.0.4
   vite-plugin-solid: ^2.5.0
@@ -16,6 +17,7 @@ devDependencies:
   prettier: 2.8.3
   solid-js: 1.6.9
   tsup: 6.5.0_typescript@4.9.4
+  tsup-preset-solid: 0.0.5_vfsx5omlh2mvrdcpnatumu2nce
   typescript: 4.9.4
   vite: 4.0.4
   vite-plugin-solid: 2.5.0_solid-js@1.6.9+vite@4.0.4
@@ -1839,6 +1841,21 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
+  /tsup-preset-solid/0.0.5_vfsx5omlh2mvrdcpnatumu2nce:
+    resolution: {integrity: sha512-upibGI3SsRkqjAqIyEXvPq4oiGi3HP6YUctpW653GBFhmg+Uux3Ep7DAwhggcWtxbdIsToxde8/eKxjTlLwOBA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      tsup: ^6.5.0
+    dependencies:
+      esbuild-plugin-solid: 0.4.2_j3sjzwtkwdvneujqy7lan5tbhi
+      tsup: 6.5.0_typescript@4.9.4
+      type-fest: 3.5.2
+    transitivePeerDependencies:
+      - esbuild
+      - solid-js
+      - supports-color
+    dev: true
+
   /tsup/6.5.0_typescript@4.9.4:
     resolution: {integrity: sha512-36u82r7rYqRHFkD15R20Cd4ercPkbYmuvRkz3Q1LCm5BsiFNUgpo36zbjVhCOgvjyxNBWNKHsaD5Rl8SykfzNA==}
     engines: {node: '>=14'}
@@ -1873,6 +1890,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - ts-node
+    dev: true
+
+  /type-fest/3.5.2:
+    resolution: {integrity: sha512-Ph7S4EhXzWy0sbljEuZo0tTNoLl+K2tPauGrQpcwUWrOVneLePTuhVzcuzVJJ6RU5DsNwQZka+8YtkXXU4z9cA==}
+    engines: {node: '>=14.16'}
     dev: true
 
   /typescript/4.9.4:
