@@ -17,5 +17,5 @@
     "noUncheckedIndexedAccess": true
   },
   "exclude": ["node_modules", "**/dist/**/*"],
-  "include": ["./src/**/*", "./env.d.ts"]
+  "include": ["src", "test", "./env.d.ts"]
 }
