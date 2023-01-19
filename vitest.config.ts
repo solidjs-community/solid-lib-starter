@@ -1,30 +1,42 @@
-import path from 'path'
 import { defineConfig } from 'vitest/config'
 import solidPlugin from 'vite-plugin-solid'
 
-const cwd = process.cwd()
+export default defineConfig(({ mode }) => {
+  // to test in server environment, run with "--mode ssr" or "--mode test:ssr" flag
+  // loads only server.test.ts file
+  const testSSR = mode === 'test:ssr' || mode === 'ssr'
 
-export default defineConfig({
-  test: {
-    watch: false,
-    env: {
-      NODE_ENV: 'development',
-      DEV: '1',
-      SSR: '',
-      PROD: '',
+  return {
+    plugins: [
+      solidPlugin({
+        // https://github.com/solidjs/solid-refresh/issues/29
+        hot: false,
+        // For testing SSR we need to do a SSR JSX transform
+        solid: { generate: testSSR ? 'ssr' : 'dom' },
+      }),
+    ],
+    test: {
+      watch: false,
+      isolate: !testSSR,
+      env: {
+        NODE_ENV: testSSR ? 'production' : 'development',
+        DEV: testSSR ? '' : '1',
+        SSR: testSSR ? '1' : '',
+        PROD: testSSR ? '1' : '',
+      },
+      environment: testSSR ? 'node' : 'jsdom',
+      transformMode: { web: [/\.[jt]sx$/] },
+      ...(testSSR
+        ? {
+            include: ['test/server.test.{ts,tsx}'],
+          }
+        : {
+            include: ['test/*.test.{ts,tsx}'],
+            exclude: ['test/server.test.{ts,tsx}'],
+          }),
     },
-    transformMode: {
-      web: [/\.[jt]sx$/],
+    resolve: {
+      conditions: testSSR ? ['node'] : ['browser', 'development'],
     },
-    environment: 'jsdom',
-  },
-  plugins: [solidPlugin({ hot: false })],
-  resolve: {
-    conditions: ['browser', 'development'],
-    alias: {
-      'solid-js/web': path.resolve(cwd, 'node_modules/solid-js/web/dist/dev.js'),
-      'solid-js/store': path.resolve(cwd, 'node_modules/solid-js/store/dist/dev.js'),
-      'solid-js': path.resolve(cwd, 'node_modules/solid-js/dist/dev.js'),
-    },
-  },
+  }
 })

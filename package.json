@@ -44,8 +44,10 @@
   "typesVersions": {},
   "scripts": {
     "dev": "vite serve dev",
-    "test": "vitest",
     "build": "tsup",
+    "test": "concurrently pnpm:test:*",
+    "test:client": "vitest",
+    "test:ssr": "pnpm run test:client --mode ssr",
     "prepublishOnly": "pnpm build",
     "format": "prettier --ignore-path .gitignore -w \"src/**/*.{js,ts,json,css,tsx,jsx}\" \"dev/**/*.{js,ts,json,css,tsx,jsx}\"",
     "update-deps": "pnpm up -Li",
@@ -55,6 +57,7 @@
     "solid-js": "^1.6.0"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "esbuild": "^0.17.2",
     "esbuild-plugin-solid": "^0.4.2",
     "jsdom": "^21.0.0",
@@ -70,5 +73,8 @@
   "keywords": [
     "solid"
   ],
-  "packageManager": "pnpm@7.20.0"
+  "packageManager": "pnpm@7.22.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
