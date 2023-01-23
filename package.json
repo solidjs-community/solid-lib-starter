@@ -73,8 +73,5 @@
   "keywords": [
     "solid"
   ],
-  "packageManager": "pnpm@7.22.0",
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "packageManager": "pnpm@7.22.0"
 }
