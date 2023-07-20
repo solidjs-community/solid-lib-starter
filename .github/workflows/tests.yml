@@ -35,5 +35,5 @@ jobs:
         env:
           CI: true
 
-      - name: Typecheck
-        run: pnpm run typecheck
+      - name: Lint
+        run: pnpm run lint

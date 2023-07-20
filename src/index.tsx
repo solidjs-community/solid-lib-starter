@@ -9,7 +9,9 @@ export function createHello(): [Accessor<string>, (to: string) => void] {
 export const Hello: Component<{ to?: string }> = props => {
   const [hello, setHello] = createHello()
 
-  // This will only log during development, console is removed in production
+  // Console calls will be removed in production if `dropConsole` is enabled
+
+  // eslint-disable-next-line no-console
   console.log('Hello World!')
 
   createComputed(() => {
