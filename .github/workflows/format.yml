@@ -8,6 +8,11 @@ jobs:
   format:
     runs-on: ubuntu-latest
 
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
@@ -17,8 +22,11 @@ jobs:
         with:
           node-version: 18
 
+      # "git restore ." discards changes to package-lock.json
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install --no-frozen-lockfile --ignore-scripts
+          git restore .
 
       - name: Format
         run: pnpm run format
