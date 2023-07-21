@@ -19,7 +19,7 @@
   "private": false,
   "sideEffects": false,
   "type": "module",
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "browser": {},
@@ -32,14 +32,12 @@
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/dev.js"
-      },
-      "require": "./dist/dev.cjs"
+      }
     },
     "import": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    },
-    "require": "./dist/index.cjs"
+    }
   },
   "typesVersions": {},
   "scripts": {
@@ -62,7 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
     "concurrently": "^8.2.0",
-    "esbuild": "^0.18.14",
+    "esbuild": "^0.18.15",
     "esbuild-plugin-solid": "^0.5.0",
     "eslint": "^8.45.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -71,9 +69,9 @@
     "prettier": "3.0.0",
     "solid-js": "^1.7.8",
     "tsup": "^7.1.0",
-    "tsup-preset-solid": "^1.0.0",
+    "tsup-preset-solid": "^2.0.1",
     "typescript": "^5.1.6",
-    "vite": "^4.4.4",
+    "vite": "^4.4.6",
     "vite-plugin-solid": "^2.7.0",
     "vitest": "^0.33.0"
   },
