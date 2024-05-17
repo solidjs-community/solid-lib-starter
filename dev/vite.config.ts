@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
+import path from 'node:path'
 import solidPlugin from 'vite-plugin-solid'
 
 export default defineConfig({
   resolve: {
     alias: {
-      src: '/src',
+      src: path.resolve(__dirname, '../src'),
     },
   },
   plugins: [
