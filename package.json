@@ -57,6 +57,7 @@
     "solid-js": "^1.6.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.12",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
     "concurrently": "^8.2.2",
