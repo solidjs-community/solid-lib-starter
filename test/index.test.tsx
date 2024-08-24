@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { Hello, createHello } from '../src'
 
 describe('environment', () => {
-  it('runs on server', () => {
+  it('runs on client', () => {
     expect(typeof window).toBe('object')
     expect(isServer).toBe(false)
   })
